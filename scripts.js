@@ -1,32 +1,19 @@
-// JavaScript functionality can be added here
+document.addEventListener('DOMContentLoaded', () => {
+    gsap.from('header', { opacity: 0, y: -50, duration: 1 });
+    gsap.from('.hero h1', { opacity: 0, y: 50, duration: 1, delay: 0.5 });
+    gsap.from('.hero p', { opacity: 0, y: 50, duration: 1, delay: 1 });
+    gsap.from('.cta', { opacity: 0, scale: 0.8, duration: 1, delay: 1.5 });
 
-// Smooth scrolling for navigation links
-document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
+    gsap.utils.toArray('.service-item').forEach((item, index) => {
+        gsap.from(item, {
+            scrollTrigger: {
+                trigger: item,
+                start: 'top 80%',
+            },
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            delay: index * 0.3,
         });
-    });
-});
-
-// Highlight active menu item based on scroll position
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('nav a');
-
-window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (pageYOffset >= sectionTop - 50) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
     });
 });
