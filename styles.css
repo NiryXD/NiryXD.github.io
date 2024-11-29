@@ -1,14 +1,17 @@
-/* Global Styles */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #111;
-    color: #fff;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
 }
 
 header {
-    background-color: #222;
-    padding: 1rem;
+    background-color: #333;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
 nav ul {
@@ -16,88 +19,73 @@ nav ul {
     display: flex;
     justify-content: center;
     gap: 2rem;
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 
 nav a {
     color: #fff;
     text-decoration: none;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
+    font-weight: bold;
+    transition: color 0.3s;
 }
 
-nav a:hover,
-nav a.active {
-    opacity: 1;
+nav a:hover {
+    color: #ff6347;
 }
 
-/* Gallery Section */
-.gallery {
+.hero {
+    height: 100vh;
     display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+    flex-direction: column;
     justify-content: center;
-    padding: 2rem;
-    background-color: #000;
-}
-
-.image-container {
-    width: 200px;
-    height: 300px;
-    background-color: #333;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
+    text-align: center;
+    background: url('path-to-your-image.jpg') no-repeat center center/cover;
     color: #fff;
-    border: 1px solid #555;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 0 1rem;
 }
 
-.image-container:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+.hero h1 {
+    font-size: 3rem;
+    margin: 0;
 }
 
-/* About Section */
-.about {
+.hero p {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+
+.cta {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #ff6347;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.cta:hover {
+    background-color: #e5533d;
+}
+
+.services, .contact {
+    padding: 4rem 1rem;
     text-align: center;
-    padding: 3rem 1rem;
-    background-color: #222;
 }
 
-.about h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+.service-item {
+    background-color: #fff;
+    margin: 1rem;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.about p {
-    font-size: 1.2rem;
-}
-
-/* Footer */
 footer {
-    background-color: #000;
+    background-color: #333;
+    color: #fff;
     text-align: center;
-    padding: 1rem;
-    font-size: 0.9rem;
-    color: #bbb;
-}
-
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .gallery {
-        flex-direction: column;
-        gap: 2rem;
-    }
-
-    .image-container {
-        width: 90%;
-        height: auto;
-    }
+    padding: 1rem 0;
 }
